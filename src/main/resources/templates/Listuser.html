@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserList</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .main{
+            height: 100%;
+            display: grid;
+            grid-template-columns: 35% 65%;
+        }
+
+        .list{
+            margin: 0.5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            
+            /* margin-bottom: 0.5rem; */
+
+        }
+
+        .container{
+            overflow-y: scroll;
+            /* border:2px solid blue; */
+            background-color: gray;
+            height: 100%;
+            
+        }
+        .containerRight{
+            border:2px solid green;
+            height: 100%;
+        }
+        .btn{
+            background-color: #1e252b;
+            width: 100%;
+            padding: 14px 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <div class="list" th:each="user : ${users}">
+            <span th:if="${user.username}!=${person.username}">
+            <form th:action="@{/get}" method="post">
+                <button class="btn" th:value="${user.username}" name="muser" th:text="${user.username}"></button>
+                <hr>
+            </form>
+            </span>
+        </div>
+    </div>
+
+    <div class="containerRight">
+        <!-- <img width="100%" src="https://cdn.pixabay.com/photo/2014/07/01/15/40/balloon-381334_1280.png" alt="" srcset=""> -->
+        <iframe style="width: 100%; height: 100%;" th:src="@{/messages}" frameborder="0"></iframe>
+    </div>
+    </div>
+</body>
+</html>
