@@ -29,8 +29,8 @@ public class MessageController {
         getprevCount = repo2.countMessage(LogInController.p1.getUsername(), receiver);
 
         m1 = new Messages(from,receiver,null);
-        // return "redirect:/messages";
-        return "redirect:/listUsers";
+        return "redirect:/messages";
+        // return "redirect:/listUsers";
     }
 
     @PostMapping("/getM") // SendMessage
