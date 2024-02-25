@@ -54,6 +54,7 @@
     }
     </style>
   </head>
+
   <body>
     <!-- <h1>Message Center</h1> -->
     <span th:each="m: ${messages}">
@@ -73,7 +74,13 @@
           required
           name="message"
         />
-      <input type="submit" value="Send message" />
+        <input onclick="fun()" type="submit" value="Send message" />
     </form>
+
+    <script>
+      function fun(){
+        window.location.reload();
+      }
+    </script>
   </body>
 </html>
